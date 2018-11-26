@@ -1,4 +1,4 @@
-package com.example.demo.elasticSearch;
+package com.example.demo.elasticsearch;
 
 import org.elasticsearch.common.lucene.search.function.FunctionScoreQuery;
 import org.elasticsearch.index.query.QueryBuilders;
