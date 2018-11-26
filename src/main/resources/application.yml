@@ -1,0 +1,27 @@
+server:
+  port: 8888
+spring:
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch #默认即为 elasticsearch
+      cluster-nodes: 172.128.9.188:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+    mongodb:
+      uri: mongodb://localhost:27017/test
+  redis:
+    #数据库索引
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        #最大连接数
+        max-active: 8
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1
+        #最大空闲
+        max-idle: 8
+        #最小空闲
+        min-idle: 0
+      #连接超时时间
+      timeout: 10000
