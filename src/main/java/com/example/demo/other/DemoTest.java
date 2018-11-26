@@ -21,18 +21,22 @@ public class DemoTest {
 
 }
 class RunnerDemo implements Runnable{
+    int len = 100;
+
     @Override
     public void run() {
-        for (int i=0;i<100;i++){
+        for (int i=0;i<len;i++){
             System.out.println("=======================================");
         }
     }
 }
 
 class RunnerDemo1 implements Runnable{
+    int len = 100;
+
     @Override
     public void run() {
-        for (int i=0;i<100;i++){
+        for (int i=0;i<len;i++){
             System.out.println("++++++++++++++++++++++++++++++++++++++");
         }
     }
