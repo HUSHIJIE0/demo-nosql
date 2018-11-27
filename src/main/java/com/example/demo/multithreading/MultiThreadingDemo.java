@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author: Michael
  * @Date: Created in 17:26 2018/11/26
- * @Desciption:
+ * @Desciption: 线程池使用操作
  */
 public class MultiThreadingDemo {
 
@@ -19,12 +19,14 @@ public class MultiThreadingDemo {
                 .setNameFormat("demo-pool-%d").build();
         ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS,
                 new ArrayBlockingQueue<Runnable>(5), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
-
-            for(int i=0;i<15;i++){
-            MyTask myTask = new MyTask(i);
-            executor.execute(myTask);
-            System.out.println("线程池中线程数目："+executor.getPoolSize()+"，队列中等待执行的任务数目："+
-                    executor.getQueue().size()+"，已执行玩别的任务数目："+executor.getCompletedTaskCount());
+        int len = 7;
+        for(int i=0;i<len;i++){
+        MyTask myTask = new MyTask(i);
+        RunnerDemo runnerDemo = new RunnerDemo();
+        executor.execute(myTask);
+        executor.execute(runnerDemo);
+        System.out.println("线程池中线程数目："+executor.getPoolSize()+"，队列中等待执行的任务数目："+
+                executor.getQueue().size()+"，已执行完别的任务数目："+executor.getCompletedTaskCount());
         }
         executor.shutdown();
     }
@@ -46,5 +48,12 @@ class MyTask implements Runnable {
             e.printStackTrace();
         }
         System.out.println("task "+taskNum+"执行完毕");
+    }
+}
+
+class RunnerDemo implements Runnable{
+    @Override
+    public void run() {
+        System.out.println("=======================================");
     }
 }
