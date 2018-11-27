@@ -79,7 +79,7 @@ public class UserController {
     //http://localhost:8888/user/query2
     @GetMapping("query2")
     public void query2(){
-        Pageable pageable = new PageRequest(0,10);
+        Pageable pageable = PageRequest.of(0,10);
         Page<User> u1 = userRepository.findByNameAndAgeRange("kaka",50,pageable);
         this.logger.info(u1.toString());
         Page<User> u2 = userRepository.findByNameAndAgeRange2("kaka",0,50,pageable);

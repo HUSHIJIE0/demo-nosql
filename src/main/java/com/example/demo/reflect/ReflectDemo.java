@@ -1,10 +1,6 @@
-package com.example.demo.other;
+package com.example.demo.reflect;
 
-import com.example.demo.other.domain.Student;
-
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 /**
  * @Author: Michael
@@ -20,7 +16,7 @@ public class ReflectDemo {
 //            Class studentClass1 = student.getClass();
 //            System.out.println(studentClass1);
 //
-//            String clazzName = "com.example.demo.other.domain.Student";
+//            String clazzName = "com.example.demo.reflect.Student";
 //            Class<?> studentClass2 = Class.forName(clazzName);
 //            System.out.println(studentClass2);
 //
@@ -115,7 +111,7 @@ public class ReflectDemo {
 
             //共有属性name的赋值
             //获取Class对象,参数全限定名
-//            Class<?> clazz = Class.forName("com.example.demo.other.domain.Student");
+//            Class<?> clazz = Class.forName("com.example.demo.reflect.Student");
 //           /*
 //               getField():通过属性名获取属性
 //            */
@@ -132,7 +128,7 @@ public class ReflectDemo {
 
             //私有属性的反射
             //获取Class对象,参数全限定名
-            Class clazz = Class.forName("com.example.demo.other.domain.Student");
+            Class clazz = Class.forName("com.example.demo.reflect.Student");
            /*
                getDeclaredField():通过属性名获取（所有权限）属性
             */
