@@ -1,10 +1,13 @@
 server:
-  port: 8888
+  port: 8080
 spring:
   data:
     elasticsearch:
       cluster-name: elasticsearch #默认即为 elasticsearch
-      cluster-nodes: 172.128.9.188:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+      cluster-nodes: 172.18.9.188:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+#      elasticsearch.yml 配置
+#      network.host: 172.18.9.188
+#      transport.tcp.port: 9300
     mongodb:
       uri: mongodb://localhost:27017/test
   redis:
@@ -25,3 +28,38 @@ spring:
         min-idle: 0
       #连接超时时间
       timeout: 10000
+#  jpa:
+#   database: mysql
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+#    username: root
+#    password: root
+
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    #url有以下几种形式:
+    # jdbc:h2:E:*/database 会持久化到磁盘文件，但是是单连接
+    # jdbc:h2:tcp://IP/database 通过远程连接的方式
+    # jdbc:h2:mem:database 直接在内存中，程序只要重启就会消失
+    url: jdbc:h2:mem:h2test
+    username: sa
+    password:
+#    程序启动后会初始化这些脚本文件
+#    schema: classpath:db/schema.sql
+#    data: classpath:db/data.sql
+  h2:
+    console:
+      settings:
+        web-allow-others: true
+      path: /h2-console
+      enabled: true
