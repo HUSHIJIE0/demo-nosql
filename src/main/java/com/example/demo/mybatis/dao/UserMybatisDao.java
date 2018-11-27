@@ -1,12 +1,14 @@
 package com.example.demo.mybatis.dao;
 
 import com.example.demo.mybatis.domain.UserMybatis;
+import org.springframework.stereotype.Repository;
 
 /**
  * @Author: Michael
  * @Date: Created in 16:42 2018/11/27
  * @Desciption:
  */
+@Repository
 public interface UserMybatisDao {
     int deleteByPrimaryKey(Integer id);
 
