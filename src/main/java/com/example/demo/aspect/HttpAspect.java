@@ -15,8 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 public class HttpAspect {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(HttpAspect.class);
+    /*1）execution(* *(..))
+    //表示匹配所有方法
+    // 2）execution(public * com. example.controller.*(..))
+    //表示匹配com. example.controller中所有的public方法
+    // 3）execution(* com. example.controller..*.*(..))
+    //表示匹配com. example.controller包及其子包下的所有方法*/
 
-    @Pointcut("execution(public * com.example.*.*(..))")//切面所切的位置
+    @Pointcut("execution(public * com.example.demo.mybatis.UserMybatisController.*(..))")//切面所切的位置
     public void log(){
     }
 
