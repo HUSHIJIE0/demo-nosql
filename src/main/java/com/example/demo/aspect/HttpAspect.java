@@ -28,7 +28,6 @@ public class HttpAspect {
 
     @Before("log()")//请求之前
     public void before(JoinPoint joinPoint){
-//        System.out.println("this is the aspect before every requset!!!!");
         LOGGER.info("this is the aspect before every requset!!!!");
 
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();

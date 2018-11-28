@@ -1,5 +1,6 @@
 package com.example.demo.mybatis;
 
+import com.example.demo.aspect.annotationaspect.WebDesc;
 import com.example.demo.mybatis.domain.UserMybatis;
 import com.example.demo.mybatis.service.UserMybatisService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,17 @@ public class UserMybatisController {
     @ResponseBody
     public UserMybatis toIndex(Integer id){
         UserMybatis user = this.userService.getUserById(id);
+        return user;
+    }
+
+    @GetMapping("/getUser")
+    @ResponseBody
+    @WebDesc
+    public UserMybatis getUser(){
+        UserMybatis user = new UserMybatis();
+        user.setAge(100);
+        user.setUserName("Michael");
+        user.setId(1000);
         return user;
     }
 }

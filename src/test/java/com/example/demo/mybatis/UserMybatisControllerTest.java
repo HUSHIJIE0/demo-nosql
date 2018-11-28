@@ -39,4 +39,9 @@ public class UserMybatisControllerTest {
     public void toIndex() {
         userMybatisController.toIndex(1);
     }
+
+    @Test
+    public void getUser() {
+        userMybatisController.getUser();
+    }
 }
