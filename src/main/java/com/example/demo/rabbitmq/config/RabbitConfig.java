@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @Author: Michael
  * @Date: Created in 17:29 2018/11/28
- * @Desciption:
+ * @Desciption: 注释掉，否则不启动服务报错
  */
-@Configuration
+//@Configuration
 public class RabbitConfig {
     //topic
     public static final String TOPIC_QUEUE1 = "topic.queue1";
