@@ -68,6 +68,26 @@ spring:
 #      path: /h2-console
 #      enabled: true
 
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      bootstrap-servers: 127.0.0.1:9092
+      auto-commit-interval: 2000
+      auto-offset-reset: latest
+      enable-auto-commit: true
+      group-id: springboot-kafka
+      fetch-max-wait: 4000
+      max-poll-records: 50
+    producer:
+      bootstrap-servers: 127.0.0.1:9092
+      batch-size: 4096
+      buffer-memory: 40960
+      linger: 1
+      retries: 0
+    listener:
+      concurrency: 1
+    topics:
+      test: nginx_log
 mybatis:
   type-aliases-package: com.example.demo.mybatis.domain
   mapperLocations: classpath:mapper/*.xml
