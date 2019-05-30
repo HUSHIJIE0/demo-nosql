@@ -24,7 +24,7 @@ public class KafkaProducerService {
     /**
      * 定时任务
      */
-    @Scheduled(cron = "00/1 * * * * ?")
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void send(){
         String message = "{\"message\":\""+UUID.randomUUID().toString()+"\"}";
         ListenableFuture future = kafkaTemplate.send("nginx_log", message);
