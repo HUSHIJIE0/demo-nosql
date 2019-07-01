@@ -29,7 +29,7 @@ public class GoodsController {
     @Autowired
     private GoodsRepository goodsRepository;
 
-    //http://localhost:8888/goods/save
+    //http://localhost:8080/goods/save
     @GetMapping("save")
     public String save(){
         GoodsInfo goodsInfo = new GoodsInfo(System.currentTimeMillis(),
@@ -38,14 +38,14 @@ public class GoodsController {
         return "success";
     }
 
-    //http://localhost:8888/goods/delete?id=1525415333329
+    //http://localhost:8080/goods/delete?id=1525415333329
     @GetMapping("delete")
     public String delete(long id){
         goodsRepository.deleteById(id);
         return "success";
     }
 
-    //http://localhost:8888/goods/update?id=1525417362754&name=修改&description=修改
+    //http://localhost:8080/goods/update?id=1525417362754&name=修改&description=修改
     @GetMapping("update")
     public String update(long id,String name,String description){
         GoodsInfo goodsInfo = new GoodsInfo(id,
@@ -54,7 +54,7 @@ public class GoodsController {
         return "success";
     }
 
-    //http://localhost:8888/goods/getOne?id=1525417362754
+    //http://localhost:8080/goods/getOne?id=1525417362754
     @GetMapping("getOne")
     public Optional<GoodsInfo> getOne(long id){
         Optional<GoodsInfo> goodsInfo = goodsRepository.findById(id);
@@ -65,8 +65,8 @@ public class GoodsController {
     //每页数量
     private Integer PAGESIZE=10;
 
-    //http://localhost:8888/goods/getGoodsList?query=商品
-    //http://localhost:8888/goods/getGoodsList?query=商品&pageNumber=1
+    //http://localhost:8080/goods/getGoodsList?query=商品
+    //http://localhost:8080/goods/getGoodsList?query=商品&pageNumber=1
     //根据关键字"商品"去查询列表，name或者description包含的都查询
     @GetMapping("getGoodsList")
     public List<GoodsInfo> getList(Integer pageNumber, String query){
