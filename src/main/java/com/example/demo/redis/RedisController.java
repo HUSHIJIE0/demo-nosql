@@ -21,7 +21,7 @@ public class RedisController {
     RedisService redisService;
 
 
-    //http://localhost:8888/redis/save
+    //http://localhost:8080/redis/save
     @GetMapping("save")
     public String save(){
         redisService.setValue("key","hello");
