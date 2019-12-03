@@ -1,18 +1,18 @@
 server:
   port: 8080
 spring:
-  data:
-    elasticsearch:
-      cluster-name: my-application #默认即为 elasticsearch
-      #9200端口是用来让HTTP REST API来访问ElasticSearch，而9300端口是传输层监听的默认端口
-      cluster-nodes: 127.0.0.1:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
-#      elasticsearch.yml 配置
-#      network.host: 172.18.9.188
-#      transport.tcp.port: 9300
+#  data:
+#    elasticsearch:
+#      cluster-name: my-application #默认即为 elasticsearch
+#      #9200端口是用来让HTTP REST API来访问ElasticSearch，而9300端口是传输层监听的默认端口
+#      cluster-nodes: 127.0.0.1:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+##      elasticsearch.yml 配置
+##      network.host: 172.18.9.188
+##      transport.tcp.port: 9300
   redis:
     #数据库索引
     database: 0
-    host: 127.0.0.1
+    host: 192.168.227.100
     port: 6379
     password:
     jedis:
@@ -35,7 +35,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://192.168.227.100:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     username: root
     password: root
 
@@ -63,38 +63,38 @@ spring:
 #      path: /h2-console
 #      enabled: true
 
-  kafka:
-    bootstrap-servers: 127.0.0.1:9092
-    consumer:
-      bootstrap-servers: 127.0.0.1:9092
-      ### 指定默认消费者group id
-      group-id: springboot-kafka
-      ### 当Kafka中没有初始偏移量或者服务器上不再存在当前偏移量时该怎么办，默认值为latest，表示自动将偏移重置为最新的偏移量,可选的值为latest, earliest, none
-      auto-offset-reset: latest
-      ### 如果为true，则消费者的偏移量将在后台定期提交，默认值为true
-      enable-auto-commit: true
-      ### 如果'enable.auto.commit'为true，则消费者偏移自动提交给Kafka的频率（以毫秒为单位），默认值为5000
-      auto-commit-interval: 2000
-      fetch-max-wait: 4000
-      max-poll-records: 50
-      ### 指定消息key和消息体的编解码方式
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    producer:
-      bootstrap-servers: 127.0.0.1:9092
-      ### 如果该值大于零时，表示启用重试失败的发送次数
-      retries: 0
-      ### 每次批量发送消息的数量
-      batch-size: 4096
-      buffer-memory: 40960
-      linger: 1
-      ### 指定消息key和消息体的编解码方式
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    listener:
-      concurrency: 1
-    topics:
-      test: nginx_log
+#  kafka:
+#    bootstrap-servers: 127.0.0.1:9092
+#    consumer:
+#      bootstrap-servers: 127.0.0.1:9092
+#      ### 指定默认消费者group id
+#      group-id: springboot-kafka
+#      ### 当Kafka中没有初始偏移量或者服务器上不再存在当前偏移量时该怎么办，默认值为latest，表示自动将偏移重置为最新的偏移量,可选的值为latest, earliest, none
+#      auto-offset-reset: latest
+#      ### 如果为true，则消费者的偏移量将在后台定期提交，默认值为true
+#      enable-auto-commit: true
+#      ### 如果'enable.auto.commit'为true，则消费者偏移自动提交给Kafka的频率（以毫秒为单位），默认值为5000
+#      auto-commit-interval: 2000
+#      fetch-max-wait: 4000
+#      max-poll-records: 50
+#      ### 指定消息key和消息体的编解码方式
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    producer:
+#      bootstrap-servers: 127.0.0.1:9092
+#      ### 如果该值大于零时，表示启用重试失败的发送次数
+#      retries: 0
+#      ### 每次批量发送消息的数量
+#      batch-size: 4096
+#      buffer-memory: 40960
+#      linger: 1
+#      ### 指定消息key和消息体的编解码方式
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    listener:
+#      concurrency: 1
+#    topics:
+#      test: nginx_log
 mybatis:
   type-aliases-package: com.example.demo.mybatis.domain
   mapperLocations: classpath:mapper/*.xml

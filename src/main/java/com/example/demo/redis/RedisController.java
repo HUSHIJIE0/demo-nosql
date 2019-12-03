@@ -22,6 +22,11 @@ public class RedisController {
 
 
     //http://localhost:8080/redis/save
+
+    /**
+     *  保存方法
+     * @return
+     */
     @GetMapping("save")
     public String save(){
         redisService.setValue("key","hello");

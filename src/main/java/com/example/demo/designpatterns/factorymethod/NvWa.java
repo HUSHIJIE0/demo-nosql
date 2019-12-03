@@ -6,7 +6,7 @@ package com.example.demo.designpatterns.factorymethod;
  * @author: Michael
  * @create: 2019-04-22 21:55
  */
-public class NuWa {
+public class NvWa {
 
     public static void main(String[] args) {
 
