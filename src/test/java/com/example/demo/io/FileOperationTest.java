@@ -31,4 +31,10 @@ public class FileOperationTest extends DemoApplicationTests {
     @Test
     public void dataIORead() {
     }
+
+    @Test
+    public void readFileByPath() {
+        String pathName = "C:\\Users\\Michael\\Desktop\\GJB9001C-2017标准-.doc.doc";
+        fileOperation.readFileByPath(pathName);
+    }
 }

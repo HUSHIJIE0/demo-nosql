@@ -98,3 +98,4 @@ spring:
 mybatis:
   type-aliases-package: com.example.demo.mybatis.domain
   mapperLocations: classpath:mapper/*.xml
+debug: on

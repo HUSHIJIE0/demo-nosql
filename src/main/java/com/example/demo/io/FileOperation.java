@@ -3,6 +3,11 @@ package com.example.demo.io;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @Author: Michael
@@ -103,6 +108,25 @@ public class FileOperation {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void readFileByPath(String pathName) {
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(Paths.get(pathName));
+        } catch (IOException e) {
+        }
+        Set<String> words = new TreeSet<>();
+        for(String line : lines)
+            for(String word : line.split("\\W+"))
+                if(word.trim().length() > 0)
+                    words.add(word);
+        System.out.println(words);
+    }
+
+    public static void main(String[] args) {
+        FileOperation f = new FileOperation();
+        f.readFileByPath("C:\\IdeaProjects\\demo-nosql\\src\\test\\java\\com\\example\\demo\\io\\FileOperationTest.java");
     }
 
 }
