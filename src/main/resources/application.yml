@@ -1,14 +1,9 @@
 server:
   port: 8080
 spring:
-#  data:
-#    elasticsearch:
-#      cluster-name: my-application #默认即为 elasticsearch
-#      #9200端口是用来让HTTP REST API来访问ElasticSearch，而9300端口是传输层监听的默认端口
-#      cluster-nodes: 127.0.0.1:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
-##      elasticsearch.yml 配置
-##      network.host: 172.18.9.188
-##      transport.tcp.port: 9300
+  elasticsearch:
+    rest:
+      uris: http://192.168.27.101:9200
   redis:
     #数据库索引
     database: 0
@@ -98,4 +93,4 @@ spring:
 mybatis:
   type-aliases-package: com.example.demo.mybatis.domain
   mapperLocations: classpath:mapper/*.xml
-debug: on
+debug: off
