@@ -1,5 +1,6 @@
 package com.example.demo.mybatis;
 
+import com.example.demo.aspect.annotationaspect.DistributeLock;
 import com.example.demo.aspect.annotationaspect.WebDesc;
 import com.example.demo.mybatis.domain.UserMybatis;
 import com.example.demo.mybatis.service.UserMybatisService;
@@ -31,6 +32,7 @@ public class UserMybatisController {
     @GetMapping("/getUser")
     @ResponseBody
     @WebDesc
+    @DistributeLock(key = "post_test_#{baseRequest.channel}", timeout = 10)
     public UserMybatis getUser(){
         UserMybatis user = new UserMybatis();
         user.setAge(100);
